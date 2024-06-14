@@ -18,18 +18,9 @@ release the buttons.
 - Geert-Jan Kreileman (GUI, design & fixes)
 - All contributors
 
+
+
 ## Installation
-
-### Use Re LiveDVD (everything ready to go, based on Ubuntu):
-User: user, Password:user (based on Ubuntu 22.04 LTS)
-
-[Live DVD V4](https://www.androidfilehost.com/?fid=15664248565197184488)
-
-[Live DVD V4 Mirror](https://drive.google.com/file/d/10OEw1d-Ul_96MuT3WxQ3iAHoPC4NhM_X/view?usp=sharing)
-
-
-
-## Install
 
 #### Install python >=3.8, git and other deps
 ```
