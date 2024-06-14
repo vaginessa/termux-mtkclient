@@ -1,7 +1,5 @@
 # MTKClient
 Just some mtk tool for exploitation, reading/writing flash and doing crazy stuff. 
-For windows, you need to install the stock mtk port and the usbdk driver (see instructions below).
-For linux, a patched kernel is only needed when using old kamakiri (see Setup folder) (except for read/write flash).
 
 Once the mtk script is running, boot into brom mode by powering off device, press and hold either
 vol up + power or vol down + power and connect the phone. Once detected by the tool,
@@ -33,105 +31,20 @@ User: user, Password:user (based on Ubuntu 22.04 LTS)
 
 ## Install
 
-### Linux  / Mac OS - (Ubuntu recommended, no patched kernel needed except for kamakiri)
-
 #### Install python >=3.8, git and other deps
-
-#### For Debian/Ubuntu
 ```
-sudo apt install python3 git libusb-1.0-0 python3-pip libfuse2
-```
-#### For ArchLinux
-```
-(sudo) pacman -S  python python-pip git libusb fuse2
-```
-or
-```
-yay -S python python-pip git libusb fuse2
+apt install python3 git libusb-1.0 python3-pip
 ```
 
 #### Grab files 
 ```
-git clone https://github.com/bkerler/mtkclient
+git clone https://github.com/RohitVerma882/termux-mtkclient
 cd mtkclient
 pip3 install -r requirements.txt
 pip3 install .
 ```
 
-#### Install rules
-```
-sudo usermod -a -G plugdev $USER
-sudo usermod -a -G dialout $USER
-sudo cp mtkclient/Setup/Linux/*.rules /etc/udev/rules.d
-sudo udevadm control -R
-```
-Make sure to reboot after adding the user to dialout/plugdev. If the device
-has a vendor interface 0xFF (like LG), make sure to add "blacklist qcaux" to
-the "/etc/modprobe.d/blacklist.conf".
 
----------------------------------------------------------------------------------------------------------------
-
-### Windows
-
-#### Install python + git
-- Install python >= 3.9 and git
-- If you install python from microsoft store, "python setup.py install" will fail, but that step isn't required.
-- WIN+R ```cmd```
-
-#### Grab files and install
-```
-git clone https://github.com/bkerler/mtkclient
-cd mtkclient
-pip3 install -r requirements.txt
-```
-
-#### Get latest UsbDk 64-Bit
-- Install normal MTK Serial Port driver (or use default Windows COM Port one, make sure no exclamation is seen)
-- Get usbdk installer (.msi) from [here](https://github.com/daynix/UsbDk/releases/) and install it
-- Test on device connect using "UsbDkController -n" if you see a device with 0x0E8D 0x0003
-- Works fine under Windows 10 and 11 :D
-
----------------------------------------------------------------------------------------------------------------
-### Use kamakiri (optional, only needed for mt6260 or older)
-
-- For linux (kamakiri attack), you need to recompile your linux kernel using this kernel patch :
-```
-sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev libdw-dev
-git clone https://git.kernel.org/pub/scm/devel/pahole/pahole.git
-cd pahole && mkdir build && cd build && cmake .. && make && sudo make install
-sudo mv /usr/local/libdwarves* /usr/local/lib/ && sudo ldconfig
-```
-
-```
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-`uname -r`.tar.xz
-tar xvf linux-`uname -r`.tar.xz
-cd linux-`uname -r`
-patch -p1 < ../Setup/kernelpatches/disable-usb-checks-5.10.patch
-cp -v /boot/config-$(uname -r) .config
-make menuconfig
-make
-sudo make modules_install 
-sudo make install
-```
-
-- These aren't needed for current ubuntu (as make install will do, just for reference):
-
-```
-sudo update-initramfs -c -k `uname -r`
-sudo update-grub
-```
-
-See Setup/kernels for ready-to-use kernel setups
-
-
-- Reboot
-
-```
-sudo reboot
-```
-
-
----------------------------------------------------------------------------------------------------------------
 
 ## Usage
 
