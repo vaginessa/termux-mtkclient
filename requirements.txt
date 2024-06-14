@@ -6,7 +6,3 @@ pycryptodomex
 colorama
 mock
 pyserial
-flake8
-keystone-engine
-capstone
-unicorn

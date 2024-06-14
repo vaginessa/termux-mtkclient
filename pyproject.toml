@@ -21,8 +21,7 @@ dependencies = [
     "pycryptodomex",
     "colorama",
     "mock",
-    "pyserial",
-    "fusepy"
+    "pyserial"
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
