@@ -39,18 +39,6 @@ pip3 install .
 
 ## Usage
 
-### Using MTKTools via the graphical user interface:
-For the 'basics' you can use the GUI interface. This supports dumping partitions or the full flash for now. Run the following command:
-```
-python mtk_gui
-```
-
-### Run multiple commands
-```bash
-python mtk script run.example
-```
-See the file "[run.example](https://github.com/bkerler/mtkclient/blob/main/run.example)" on how to structure the script file
-
 ### Root the phone (Tested with android 9 - 12)
 
 1. Dump boot and vbmeta
