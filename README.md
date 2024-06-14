@@ -39,6 +39,12 @@ pip3 install .
 
 ## Usage
 
+### Run multiple commands
+```bash
+python mtk script run.example
+```
+See the file "[run.example](https://github.com/RohitVerma882/termux-mtkclient/blob/main/run.example)" on how to structure the script file
+
 ### Root the phone (Tested with android 9 - 12)
 
 1. Dump boot and vbmeta
