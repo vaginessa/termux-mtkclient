@@ -43,7 +43,7 @@ pip3 install .
 ```bash
 python mtk script run.example
 ```
-See the file "[run.example](https://github.com/RohitVerma882/termux-mtkclient/blob/main/run.example)" on how to structure the script file
+See the file "[run.example](https://github.com/RohitVerma882/termux-mtkclient/blob/main/examples/run.example)" on how to structure the script file
 
 ### Root the phone (Tested with android 9 - 12)
 
