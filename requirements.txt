@@ -1,0 +1,12 @@
+wheel
+setuptools
+pyusb
+pycryptodome
+pycryptodomex
+colorama
+mock
+pyserial
+flake8
+keystone-engine
+capstone
+unicorn
